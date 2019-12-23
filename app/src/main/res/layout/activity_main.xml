@@ -7,13 +7,13 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnAlbum"
+        android:id="@+id/btn_album"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="open album" />
+        android:text="show gif" />
 
     <ImageView
-        android:id="@+id/ivDisplay"
+        android:id="@+id/iv_display"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

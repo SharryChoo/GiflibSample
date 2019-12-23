@@ -238,8 +238,9 @@ GifDecoder::drawFrame(int frameNr, Color8888 *outputPtr, int outputPixelStride, 
                 switch (prevGcb.DisposalMode) {
                     case DISPOSE_BACKGROUND: {
                         // 填充背景色
-                        Color8888 *dst = outputPtr + prevFrame.ImageDesc.Left +
-                                         prevFrame.ImageDesc.Top * outputPixelStride;
+                        Color8888 *dst = outputPtr + (prevFrame.ImageDesc.Left / inSampleSize) +
+                                         (prevFrame.ImageDesc.Top / inSampleSize) *
+                                         outputPixelStride;
                         GifWord copyWidth, copyHeight;
                         getCopySize(prevFrame.ImageDesc, requestedWidth, requestedHeight, copyWidth,
                                     copyHeight);
@@ -275,8 +276,8 @@ GifDecoder::drawFrame(int frameNr, Color8888 *outputPtr, int outputPixelStride, 
             if (cmap) {
                 // 填充当前帧的颜色
                 const unsigned char *src = frame.RasterBits;
-                Color8888 *dst = outputPtr + frame.ImageDesc.Left +
-                                 frame.ImageDesc.Top * outputPixelStride;
+                Color8888 *dst = outputPtr + (frame.ImageDesc.Left / inSampleSize) +
+                                 (frame.ImageDesc.Top / inSampleSize) * outputPixelStride;
                 GifWord copyWidth, copyHeight;
                 getCopySize(frame.ImageDesc, requestedWidth, requestedHeight, copyWidth,
                             copyHeight);

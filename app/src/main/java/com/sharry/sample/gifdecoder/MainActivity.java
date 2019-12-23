@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
 import com.sharry.sample.gifdecoder.extension.GlideApp;
 
 /**
@@ -21,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final ImageView ivDisplay = findViewById(R.id.ivDisplay);
-        findViewById(R.id.btnAlbum).setOnClickListener(new View.OnClickListener() {
+        final ImageView ivDisplay = findViewById(R.id.iv_display);
+        findViewById(R.id.btn_album).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 使用 GIFLIB  + FrameSequenceDrawable 加载
